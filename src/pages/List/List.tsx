@@ -39,7 +39,7 @@ const Lists: React.FC = () => {
       title="Virtualizing"
       subtitles={[
         "When working with large sets of data like lists or gallaries, each item is rendered even if not visible to the user.",
-        "Use lazy-load technique to render only whatin the user's view.",
+        "Use lazy-load technique to render only what is in the user's view.",
       ]}
     >
       {/* <div className={classes.root}>

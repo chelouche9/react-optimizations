@@ -5,15 +5,16 @@ import _ from "lodash";
 
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
 
-console.log("outer function - render only once");
+// console.log("outer function - render only once");
+// const heavyCalc = _.times(10000000, String)[0];
 
 const Memo: React.FC = () => {
   const [notRelevant, setNotRelevant] = useState(1);
-  const heavyClac = _.times(10000000, String)[0];
-  //   const heavyClac = useMemo(() => _.times(10000000, String)[0], []);
-  //   const heavyClac = useCallback(() => _.times(10000000, String)[0], []);
-  //   const cacl = useMemo(() => heavyClac(), [heavyClac]);
   console.log("render every state change");
+  const heavyCalc = _.times(10000000, String)[0];
+  // const heavyCalc = useMemo(() => _.times(10000000, String)[0], []);
+  // const cacl = useCallback(() => _.times(10000000, String)[0], []);
+  // const heavyCalc = useMemo(() => cacl(), [cacl]);
 
   return (
     <PageTemplate
@@ -23,13 +24,13 @@ const Memo: React.FC = () => {
         "This means any variable or function will be exectued again.",
       ]}
     >
-      <div>Relevant: {heavyClac}</div>
+      <div>Relevant: {heavyCalc}</div>
       <div style={{ marginTop: 15 }}>Non Relevant: {notRelevant}</div>
       <Button
         variant="contained"
         color="primary"
         style={{ marginTop: 15 }}
-        onClick={() => setNotRelevant((prev) => prev + 1)}
+        onClick={() => setNotRelevant((s) => s + 1)}
       >
         Non relevant state change
       </Button>
